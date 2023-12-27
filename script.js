@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const feeds = [
         'https://techcrunch.com/category/artificial-intelligence/feed/',
-        'https://www.wired.com/artificial-intelligence/feed/rss/'
+        'https://www.theverge.com/ai-artificial-intelligence/rss/index.xml'
+        'https://www.wired.com/feed/tag/ai/latest/rss'
+        'https://www.technologyreview.com/topic/artificial-intelligence/feed'
         // Add more RSS feed URLs here
     ];
 
