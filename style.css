@@ -12,16 +12,12 @@
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 4px;
-    display: flex;
-    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.news-thumbnail {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-right: 15px;
-    border-radius: 4px;
+.news-item:hover {
+    background-color: #e9ecef;
 }
 
 .news-title {
@@ -30,8 +26,9 @@
     margin-bottom: 5px;
 }
 
-.news-description {
+.news-date {
     font-size: 14px;
+    color: #6c757d;
 }
 
 #load-more {
