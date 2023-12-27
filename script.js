@@ -35,28 +35,21 @@ function displayNews(data, container) {
     }
 
     data.items.forEach(item => {
-        const newsItem = document.createElement('div');
+        const newsItem = document.createElement('a');
         newsItem.className = 'news-item';
-
-        const thumbnail = document.createElement('img');
-        thumbnail.src = item.thumbnail;
-        thumbnail.className = 'news-thumbnail';
-        thumbnail.alt = item.title;
-
-        const textContainer = document.createElement('div');
+        newsItem.href = item.link;
+        newsItem.target = '_blank';
 
         const title = document.createElement('div');
         title.className = 'news-title';
         title.textContent = item.title;
 
-        const description = document.createElement('div');
-        description.className = 'news-description';
-        description.textContent = item.description;
+        const date = document.createElement('div');
+        date.className = 'news-date';
+        date.textContent = new Date(item.pubDate).toLocaleDateString();
 
-        textContainer.appendChild(title);
-        textContainer.appendChild(description);
-        newsItem.appendChild(thumbnail);
-        newsItem.appendChild(textContainer);
+        newsItem.appendChild(title);
+        newsItem.appendChild(date);
         container.appendChild(newsItem);
     });
 }
