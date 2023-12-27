@@ -1,57 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
     const newsContainer = document.getElementById('news-container');
     const loadMoreButton = document.getElementById('load-more');
-    let currentPage = 0;
+    let currentPage = 1;
 
-    const feeds = [
-        'https://techcrunch.com/category/artificial-intelligence/feed/',
-        'https://www.theverge.com/ai-artificial-intelligence/rss/index.xml'
-        'https://www.wired.com/feed/tag/ai/latest/rss'
-        'https://www.technologyreview.com/topic/artificial-intelligence/feed'
-        // Add more RSS feed URLs here
-    ];
+    const loadNews = () => {
+        const rssFeeds = ['https://techcrunch.com/category/artificial-intelligence/feed/', 'https://www.theverge.com/ai-artificial-intelligence/rss/index.xml', 'https://www.wired.com/feed/tag/ai/latest/rss']; // Replace with actual RSS feed URLs
+        const apiKey = 'p81zpao52cbqjkkfvubaqcx0rv0kbdscv2rpjfgq'; // Replace with your RSS2JSON API key
+        const requestURL = `https://api.rss2json.com/v1/api.json?rss_url=${rssFeeds[currentPage - 1]}&api_key=${apiKey}`;
 
-    function loadFeeds() {
-        feeds.forEach(feedUrl => {
-            fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}&page=${currentPage}`)
-                .then(response => response.json())
-                .then(data => {
-                    displayNews(data, newsContainer);
-                })
-                .catch(error => console.error('Error fetching RSS feed:', error));
-        });
-    }
+        fetch(requestURL)
+            .then(response => response.json())
+            .then(data => {
+                data.items.forEach(item => {
+                    const newsItem = document.createElement('div');
+                    newsItem.innerHTML = `<a href="${item.link}" target="_blank">${item.title} - ${new Date(item.pubDate).toLocaleDateString()}</a>`;
+                    newsContainer.appendChild(newsItem);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    };
 
     loadMoreButton.addEventListener('click', () => {
         currentPage++;
-        loadFeeds();
+        loadNews();
     });
 
-    loadFeeds();
+    loadNews();
 });
-
-function displayNews(data, container) {
-    if (data.status !== 'ok') {
-        console.error('Error loading news:', data.error);
-        return;
-    }
-
-    data.items.forEach(item => {
-        const newsItem = document.createElement('a');
-        newsItem.className = 'news-item';
-        newsItem.href = item.link;
-        newsItem.target = '_blank';
-
-        const title = document.createElement('div');
-        title.className = 'news-title';
-        title.textContent = item.title;
-
-        const date = document.createElement('div');
-        date.className = 'news-date';
-        date.textContent = new Date(item.pubDate).toLocaleDateString();
-
-        newsItem.appendChild(title);
-        newsItem.appendChild(date);
-        container.appendChild(newsItem);
-    });
-}
