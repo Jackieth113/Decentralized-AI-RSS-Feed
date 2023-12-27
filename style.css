@@ -1,25 +1,28 @@
-#news-container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* ... existing styles ... */
+
+.news-thumbnail {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 10px;
 }
 
-.news-item {
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 4px;
+.news-content {
+    overflow: hidden;
 }
 
-.news-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
+#load-more {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.news-description {
-    font-size: 14px;
+#load-more:hover {
+    background-color: #0056b3;
 }
