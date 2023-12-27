@@ -4,45 +4,15 @@ body {
     font-family: Arial, sans-serif;
 }
 
-#news-container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-}
-
-.news-item {
-    background-color: #0047AB;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
-}
-
-.news-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
-}
-
-.news-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.news-date {
-    font-size: 14px;
-    opacity: 0.8;
+#news-container a {
+    color: white;
+    text-decoration: none;
 }
 
 #load-more {
-    display: block;
-    width: 80%;
-    margin: 20px auto;
-    padding: 10px 20px;
     background-color: #0047AB;
     color: white;
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
 }
