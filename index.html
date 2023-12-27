@@ -1,20 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>RSS Feed Widget</title>
-    <script src="https://some-rss-feed-library.js" type="text/javascript" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Widget</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <div id="rss-feed-wall"></div>
+    <div id="news-container">
+        <!-- News items will be added here dynamically -->
+    </div>
 
-    <script>
-        // JavaScript to initialize and load the RSS feed into the 'rss-feed-wall' div
-        document.addEventListener('DOMContentLoaded', function() {
-            var feedWall = document.getElementById('rss-feed-wall');
-            // Initialize and load your RSS feed here
-            // This is a placeholder, and you would replace it with actual code to load and display the feed
-            feedWall.innerHTML = 'https://rss.app/feeds/v1.1/_K5Av0IZa1LMB5DKP.json';
-        });
-    </script>
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
 </body>
 </html>
